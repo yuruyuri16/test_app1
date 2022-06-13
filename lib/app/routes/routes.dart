@@ -9,10 +9,10 @@ GoRouter router(AuthCubit cubit) {
     redirect: (state) {
       if (state.subloc == '/register') return null;
       final isAuthenticated = cubit.state.status.isAuthenticated;
-      final isLoggedIn = state.subloc == '/login';
+      final loggingIn = state.subloc == '/login';
 
-      if (!isAuthenticated && !isLoggedIn) return '/login';
-      if (isAuthenticated && isLoggedIn) return '/';
+      if (!isAuthenticated && !loggingIn) return '/login';
+      if (isAuthenticated && loggingIn) return '/';
 
       return null;
     },
