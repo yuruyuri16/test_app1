@@ -18,7 +18,8 @@ class RegisterView extends StatelessWidget {
       appBar: AppBar(title: const Text('Register')),
       body: Column(
         children: const <Widget>[
-          Text('Save this file and it will take you to the login page'),
+          Text(
+              'Save this file or any other file and it will take you to the login page'),
         ],
       ),
     );

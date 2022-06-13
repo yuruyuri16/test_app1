@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_app/app/app.dart';
 import 'package:test_app/counter/counter.dart';
 import 'package:test_app/l10n/l10n.dart';
 
@@ -29,7 +30,13 @@ class CounterView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => context.read<AuthCubit>().logOut(),
+          icon: const Icon(Icons.logout),
+        ),
+        title: Text(l10n.counterAppBarTitle),
+      ),
       body: const Center(child: CounterText()),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,

@@ -16,7 +16,9 @@ GoRouter router(AuthCubit cubit) {
 
       return null;
     },
-    refreshListenable: GoRouterRefreshStream(cubit.stream),
+    refreshListenable: GoRouterRefreshStream(
+      cubit.stream.map((event) => event.status).distinct(),
+    ),
     routes: <GoRoute>[
       GoRoute(path: '/', builder: (_, __) => const CounterPage()),
       GoRoute(path: '/login', builder: (_, __) => const LoginPage()),
