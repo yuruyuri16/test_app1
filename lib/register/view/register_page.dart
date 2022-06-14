@@ -19,7 +19,8 @@ class RegisterView extends StatelessWidget {
       body: Column(
         children: const <Widget>[
           Text(
-              'Save this file or any other file and it will take you to the login page'),
+            '''Save this file or any other file and it will take you to the login page''',
+          ),
         ],
       ),
     );

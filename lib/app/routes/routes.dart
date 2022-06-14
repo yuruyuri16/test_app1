@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:go_router/go_router.dart';
 import 'package:test_app/app/app.dart';
 import 'package:test_app/counter/counter.dart';
@@ -7,6 +9,7 @@ import 'package:test_app/register/view/register_page.dart';
 GoRouter router(AuthCubit cubit) {
   return GoRouter(
     redirect: (state) {
+      log('STATE :${state.location}');
       if (state.subloc == '/register') return null;
       final isAuthenticated = cubit.state.status.isAuthenticated;
       final loggingIn = state.subloc == '/login';
